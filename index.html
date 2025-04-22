@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembayaran E-Wallet</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="payment-container">
-    <h2>Pilih Metode Pembayaran</h2>
-
-    <div class="payment-methods">
-        <div class="method">
-            <h3>DANA</h3>
-            <p id="danaNumber">085757820755</p>
-            <button onclick="copyNumber('danaNumber')">Copy Nomor DANA</button>
-        </div>
-
-        <div class="method">
-            <h3>GoPay</h3>
-            <p id="gopayNumber">083134463914</p>
-            <button onclick="copyNumber('gopayNumber')">Copy Nomor GoPay</button>
-        </div>
-
-        <div class="method">
-            <h3>OVO</h3>
-            <p id="ovoNumber">085165212382</p>
-            <button onclick="copyNumber('ovoNumber')">Copy Nomor OVO</button>
-        </div>
-
-        <div class="method">
-            <h3>QRIS</h3>
-            <img src="https://i.postimg.cc/T1df1b8g/qrcode-pembayaran.jpg" alt="QRIS Code" class="qr-image">
-        </div>
+  <h1>Pembayaran</h1>
+  <div class="logo">
+    <img src="https://i.postimg.cc/N0yPBj5D/kyami.jpg" alt="Logo" width="120" />
+  </div>
+  <div class="payment-container">
+    <div class="payment-method">
+      <h3>DANA</h3>
+      <p id="dana">085757820755</p>
+      <button onclick="copyText('dana')">Salin</button>
     </div>
+    <div class="payment-method">
+      <h3>Gopay</h3>
+      <p id="gopay">083134463914</p>
+      <button onclick="copyText('gopay')">Salin</button>
+    </div>
+    <div class="payment-method">
+      <h3>OVO</h3>
+      <p id="ovo">085165212382</p>
+      <button onclick="copyText('ovo')">Salin</button>
+    </div>
+    <div class="payment-method">
+      <h3>QRIS</h3>
+      <img src="https://i.postimg.cc/T1df1b8g/qrcode-pembayaran.jpg" alt="QRIS" width="200" />
+    </div>
+  </div>
+  <button class="confirm-btn" onclick="konfirmasiPembayaran()">Konfirmasi Pembayaran</button>
 
-    <div class="confirmation">
-    <h4>Setelah transfer, silakan konfirmasi ke Admin!</h4>
-    <a href="https://wa.me/6281234567890?text=Halo%20saya%20sudah%20melakukan%20pembayaran.%20Mohon%20dicek%20ya!" target="_blank">
-        <button>Konfirmasi Pembayaran via WhatsApp</button>
-    </a>
-</div>
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Nomor berhasil disalin!');
+      });
+    }
 
-<script>
-function copyNumber(elementId) {
-    const number = document.getElementById(elementId).innerText;
-    navigator.clipboard.writeText(number).then(function() {
-        alert('Nomor berhasil disalin: ' + number);
-    }, function(err) {
-        alert('Gagal menyalin nomor: ', err);
-    });
-}
-</script>
+    function konfirmasiPembayaran() {
+      const nomorWhatsApp = '083134463914';
+      const pesan = encodeURIComponent('Halo Min, Saya Ingin Mengonfirmasi Pembayaran saya');
+      window.location.href = `https://wa.me/${nomorWhatsApp}?text=${pesan}`;
+    }
 
+    // Efek salju
+    for (let i = 0; i < 50; i++) {
+      let snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = 2 + Math.random() * 3 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.innerText = '❄';
+      document.body.appendChild(snowflake);
+    }
+  </script>
 </body>
 </html>

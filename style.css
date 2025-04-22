@@ -17,6 +17,7 @@ h1 {
 
 .payment-container {
   margin-top: 30px;
+  padding: 0 15px;
 }
 
 .payment-method {
@@ -24,6 +25,7 @@ h1 {
   padding: 20px;
   margin: 20px auto;
   width: 300px;
+  max-width: 100%;
   border-radius: 10px;
   backdrop-filter: blur(5px);
 }
@@ -60,5 +62,23 @@ h1 {
 @keyframes fall {
   to {
     transform: translateY(100vh);
+  }
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .payment-method {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .confirm-btn {
+    width: 90%;
+    font-size: 14px;
+    padding: 12px 20px;
   }
 }

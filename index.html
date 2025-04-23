@@ -241,7 +241,7 @@
   <!-- Footer -->
   <footer>
     <h3>Kontak Kami</h3>
-    <p>WhatsApp: <a href="https://wa.me/6283134463914" target="_blank">+6283134463914</a></p>
+    <p>WhatsApp: <a href="https://wa.me/6283134463914" target="_blank">6283134463914</a></p>
     <p>Email: <a href="limmvzbusines@email.com">limmvzbusines@email.com</a></p>
   </footer>
 
@@ -271,7 +271,7 @@ Jumlah: ${jumlah}
 Total: Rp${total.toLocaleString()}`;
       
       const nomorWA = "6283134463914"; // Ganti dengan nomor penjual
-      const url = `https://wa.me/6283134463914${nomorWA}?text=${encodeURIComponent(pesan)}`;
+      const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       window.open(url, '_blank');
       form.reset();
     }

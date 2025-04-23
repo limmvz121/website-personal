@@ -14,16 +14,32 @@
       background: #fefefe;
       color: #333;
     }
+
     header {
       background: linear-gradient(135deg, #84fab0, #8fd3f4);
-      padding: 60px 20px;
-      text-align: center;
+      padding: 80px 20px;
       color: white;
+      position: relative;
     }
-    header h1 {
-      font-size: 2.5rem;
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
     }
-    header button {
+    .hero-text h1 {
+      font-size: 2.8rem;
+      animation: fadeInUp 0.6s ease;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      animation: fadeInUp 0.8s ease;
+    }
+    .hero-text button {
       margin-top: 20px;
       padding: 12px 25px;
       font-size: 1rem;
@@ -33,9 +49,22 @@
       border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
+      animation: fadeInUp 1s ease;
     }
-    header button:hover {
+    .hero-text button:hover {
       background: #eee;
+    }
+    .hero-image img {
+      width: 200px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @media(min-width: 768px) {
+      .hero-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
     }
 
     #produk-section {
@@ -93,7 +122,12 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
+    .desc {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
+      min-height: 40px;
+    }
     footer {
       background: #222;
       color: white;
@@ -104,95 +138,143 @@
       color: #8fd3f4;
       text-decoration: none;
     }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      background: white;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="hero-container">
-    <div class="hero-text">
-      <h1>Toko Laris Manis</h1>
-      <p>Belanja kebutuhan harian tanpa ribet & cepat sampai ke rumah!</p>
-      <button onclick="tampilkanProduk()">Lihat Produk</button>
+  <!-- Logo -->
+  <img src="https://files.catbox.moe/7mjzwe.jpg" alt="Logo Toko" class="logo" />
+
+  <!-- Header -->
+  <header>
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1>Limmvz Product</h1>
+        <p>Belanja Kebutuhan Hoasting Murah</p>
+        <button onclick="tampilkanProduk()">Lihat Produk</button>
+      </div>
+      <div class="hero-image">
+        <img src="https://files.catbox.moe/7mjzwe.jpg" alt="Ilustrasi Belanja" />
+      </div>
     </div>
-    <div class="hero-image">
-      <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Ilustrasi Belanja" />
+  </header>
+
+  <!-- Produk -->
+  <section id="produk-section">
+    <h2>Daftar Produk</h2>
+    <div class="produk">
+
+      <!-- Produk A -->
+      <div class="card">
+        <img src="https://i.postimg.cc/dVQFYbTZ/Picsart-25-04-23-16-48-17-943.jpg" alt="Produk A">
+        <h3>Panel Pterodatcly Server Private</h3>
+        <p><strong>Rp7.000-9.000</strong></p>
+        <p class="desc">Panel Server Private Mulai Dari Ram 8-unli.</p>
+        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Produk A', 20000)">
+          <input type="text" placeholder="Nama Anda" required>
+          <input type="number" placeholder="Jumlah" required>
+          <button type="submit">Pesan via WhatsApp</button>
+        </form>
+      </div>
+
+      <!-- Produk B -->
+      <div class="card">
+        <img src="https://i.postimg.cc/dVQFYbTZ/Picsart-25-04-23-16-48-17-943.jpg" alt="Produk B">
+        <h3>Reseller Panel Private</h3>
+        <p><strong>Rp15.000</strong></p>
+        <p class="desc">Benefit : Bisa Jualan Panel Private,Bisa Membuat Server Untuk Sendiri.</p>
+        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Produk B', 35000)">
+          <input type="text" placeholder="Nama Anda" required>
+          <input type="number" placeholder="Jumlah" required>
+          <button type="submit">Pesan via WhatsApp</button>
+        </form>
+      </div>
+
+      <!-- Produk C -->
+      <div class="card">
+        <img src="https://i.postimg.cc/kgxzHf5Y/IMG-20250423-161933-095.jpg" alt="Produk C">
+        <h3>Script Bugs Strarev V3.2</h3>
+        <p><strong>Rp40.000</strong></p>
+        <p class="desc">Efek : DelayMaker,Force Close No Click,DelayInvisible,Func New.</p>
+        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Produk C', 50000)">
+          <input type="text" placeholder="Nama Anda" required>
+          <input type="number" placeholder="Jumlah" required>
+          <button type="submit">Pesan via WhatsApp</button>
+        </form>
+      </div>
+
     </div>
-  </div>
-</header>
+  </section>
 
+  <!-- Footer -->
+  <footer>
+    <h3>Kontak Kami</h3>
+    <p>WhatsApp: <a href="https://wa.me/6283134463914" target="_blank">+62 812-3456-7890</a></p>
+    <p>Email: <a href="limmvzbusines@email.com">limmvzbusines@email.com</a></p>
+  </footer>
 
-<section id="produk-section">
-  <h2>Daftar Produk</h2>
-  <div class="produk">
-    <!-- Produk A -->
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Produk A">
-      <h3>Produk A</h3>
-      <p>Rp20.000</p>
-      <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Produk A', 20000)">
-        <input type="text" placeholder="Nama Anda" required>
-        <input type="number" placeholder="Jumlah" required>
-        <button type="submit">Pesan via WhatsApp</button>
-      </form>
-    </div>
+  <!-- Musik -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mp3">
+    Browser kamu tidak mendukung audio.
+  </audio>
 
-    <!-- Produk B -->
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Produk B">
-      <h3>Produk B</h3>
-      <p>Rp35.000</p>
-      <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Produk B', 35000)">
-        <input type="text" placeholder="Nama Anda" required>
-        <input type="number" placeholder="Jumlah" required>
-        <button type="submit">Pesan via WhatsApp</button>
-      </form>
-    </div>
+  <!-- Script -->
+  <script>
+    function tampilkanProduk() {
+      document.getElementById('produk-section').classList.add('show');
+      window.scrollTo({ top: document.getElementById('produk-section').offsetTop, behavior: 'smooth' });
+    }
 
-    <!-- Produk C -->
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Produk C">
-      <h3>Produk C</h3>
-      <p>Rp50.000</p>
-      <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Produk C', 50000)">
-        <input type="text" placeholder="Nama Anda" required>
-        <input type="number" placeholder="Jumlah" required>
-        <button type="submit">Pesan via WhatsApp</button>
-      </form>
-    </div>
-  </div>
-</section>
+    function pesanWhatsApp(event, produk, harga) {
+      event.preventDefault();
+      const form = event.target;
+      const nama = form.querySelector('input[type=text]').value;
+      const jumlah = form.querySelector('input[type=number]').value;
+      const total = harga * jumlah;
 
-<footer>
-  <h3>Kontak Kami</h3>
-  <p>WhatsApp: <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
-  <p>Email: <a href="mailto:tokolarismanis@email.com">tokolarismanis@email.com</a></p>
-</footer>
-
-<script>
-  function tampilkanProduk() {
-    document.getElementById('produk-section').classList.add('show');
-    window.scrollTo({ top: document.getElementById('produk-section').offsetTop, behavior: 'smooth' });
-  }
-
-  function pesanWhatsApp(event, produk, harga) {
-    event.preventDefault();
-    const form = event.target;
-    const nama = form.querySelector('input[type=text]').value;
-    const jumlah = form.querySelector('input[type=number]').value;
-    const total = harga * jumlah;
-
-    const pesan = `Halo, saya ${nama} ingin memesan:
+      const pesan = `Halo, saya ${nama} ingin memesan:
 Produk: ${produk}
 Jumlah: ${jumlah}
 Total: Rp${total.toLocaleString()}`;
-    
-    const nomorWA = "6281234567890"; // Ganti dengan nomor penjual
-    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-    window.open(url, '_blank');
-    form.reset();
-  }
-</script>
-
+      
+      const nomorWA = "6283134463914"; // Ganti dengan nomor penjual
+      const url = `https://wa.me/6283134463914${nomorWA}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+      form.reset();
+    }
+  </script>
 </body>
 </html>

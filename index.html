@@ -109,7 +109,7 @@
       flex-direction: column;
       gap: 10px;
     }
-    .form-pesan input {
+    .form-pesan input, .form-pesan select {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -182,7 +182,7 @@
     <div class="hero-container">
       <div class="hero-text">
         <h1>Limmvz Product</h1>
-        <p>Belanja Kebutuhan Hoasting Murah</p>
+        <p>Belanja Kebutuhan Hosting Murah</p>
         <button onclick="tampilkanProduk()">Lihat Produk</button>
       </div>
       <div class="hero-image">
@@ -200,10 +200,14 @@
       <div class="card">
         <img src="https://i.postimg.cc/dVQFYbTZ/Picsart-25-04-23-16-48-17-943.jpg" alt="Produk A">
         <h3>Panel Pterodatcly Server Private</h3>
-        <p><strong>Rp7.000-9.000</strong></p>
         <p class="desc">Panel Server Private Mulai Dari Ram 8-unli.</p>
-        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Panel Private', 7-9000)">
+        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Panel Private', 7000)">
           <input type="text" placeholder="Nama Anda" required>
+          <select required>
+            <option value="7000">Rp7.000</option>
+            <option value="7000">Rp8.000</option>
+            <option value="9000">Rp9.000</option>
+          </select>
           <input type="number" placeholder="Jumlah" required>
           <button type="submit">Pesan via WhatsApp</button>
         </form>
@@ -213,10 +217,12 @@
       <div class="card">
         <img src="https://i.postimg.cc/dVQFYbTZ/Picsart-25-04-23-16-48-17-943.jpg" alt="Produk B">
         <h3>Reseller Panel Private</h3>
-        <p><strong>Rp15.000</strong></p>
-        <p class="desc">Benefit : Bisa Jualan Panel Private,Bisa Membuat Server Untuk Sendiri.</p>
+        <p class="desc">Benefit : Bisa Jualan Panel Private, Bisa Membuat Server Untuk Sendiri.</p>
         <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Reseller Panel Private', 15000)">
           <input type="text" placeholder="Nama Anda" required>
+          <select required>
+            <option value="15000">Rp15.000</option>
+          </select>
           <input type="number" placeholder="Jumlah" required>
           <button type="submit">Pesan via WhatsApp</button>
         </form>
@@ -226,39 +232,48 @@
       <div class="card">
         <img src="https://i.postimg.cc/kgxzHf5Y/IMG-20250423-161933-095.jpg" alt="Produk C">
         <h3>Script Bugs Strarev V3.2</h3>
-        <p><strong>Rp40.000</strong></p>
-        <p class="desc">Efek : DelayMaker,Force Close No Click,DelayInvisible,Func New.</p>
-        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Sc Strarev', 40000)">
+        <p class="desc">Efek : DelayMaker, Force Close No Click, DelayInvisible, Func New.</p>
+        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Script Strarev', 40000)">
           <input type="text" placeholder="Nama Anda" required>
+          <select required>
+            <option value="40000">Rp40.000</option>
+          </select>
           <input type="number" placeholder="Jumlah" required>
           <button type="submit">Pesan via WhatsApp</button>
         </form>
       </div>
-<!-- Produk D -->
-<div class="card">
-  <img src="https://files.catbox.moe/0ll6g2.png" alt="Produk D">
-  <h3>Jasa Install Panel</h3>
-  <p><strong>Rp10.000</strong></p>
-  <p class="desc">Benef : Free Req Hostname,Free Node 20+.</p>
-  <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Jasa Install Panel', 10000)">
-    <input type="text" placeholder="Nama Anda" required>
-    <input type="number" placeholder="Jumlah" required>
-    <button type="submit">Pesan via WhatsApp</button>
-  </form>
-</div>
 
-<!-- Produk E -->
-<div class="card">
-  <img src="https://files.catbox.moe/5mpk4b.png" alt="Produk E">
-  <h3>Jasa Rename Sc</h3>
-  <p><strong>Rp8.000</strong></p>
-  <p class="desc">Note : Sc Md 8.000 Sc Biasa 5.000.</p>
-  <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Jasa Rename Sc', 8000)">
-    <input type="text" placeholder="Nama Anda" required>
-    <input type="number" placeholder="Jumlah" required>
-    <button type="submit">Pesan via WhatsApp</button>
-  </form>
-</div>
+      <!-- Produk D -->
+      <div class="card">
+        <img src="https://files.catbox.moe/0ll6g2.png" alt="Jasa Install Panel">
+        <h3>Jasa Install Panel</h3>
+        <p class="desc">Benefit : Free Req Hostname,Free Node 20+.</p>
+        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Jasa Install Panel', 10000)">
+          <input type="text" placeholder="Nama Anda" required>
+          <select required>
+            <option value="10000">Rp10.000</option>
+          </select>
+          <input type="number" placeholder="Jumlah" required>
+          <button type="submit">Pesan via WhatsApp</button>
+        </form>
+      </div>
+
+      <!-- Produk E -->
+      <div class="card">
+        <img src="https://files.catbox.moe/5mpk4b.png" alt="Produk E">
+        <h3>Jasa Rename Sc Sampai Akar</h3>
+        <p class="desc">Sc Biasa : 5.000,Sc Md 8.000.</p>
+        <form class="form-pesan" onsubmit="pesanWhatsApp(event, 'Rename Sc', 5000)">
+          <input type="text" placeholder="Nama Anda" required>
+          <select required>
+            <option value="5000">Rp5.000</option>
+            <option value="8000">Rp8.000</option>
+          </select>
+          <input type="number" placeholder="Jumlah" required>
+          <button type="submit">Pesan via WhatsApp</button>
+        </form>
+      </div>
+
     </div>
   </section>
 
@@ -266,7 +281,7 @@
   <footer>
     <h3>Kontak Kami</h3>
     <p>WhatsApp: <a href="https://wa.me/6283134463914" target="_blank">6283134463914</a></p>
-    <p>Email: <a href="limmvzbusines@email.com">limmvzbusines@email.com</a></p>
+    <p>Email: <a href="mailto:limmvzbusines@email.com">limmvzbusines@email.com</a></p>
   </footer>
 
   <!-- Musik -->
@@ -300,5 +315,7 @@ Total: Rp${total.toLocaleString()}`;
       form.reset();
     }
   </script>
+
 </body>
-</html>
+            </html>
+  
